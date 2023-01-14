@@ -5,9 +5,118 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #181A1B;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  margin: 0;
+  color: #C6C6C6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  /* push footer to bottom of page */
+  flex: 1;
+}
+
+header {
+  display: flex;
+  background-color: #0D0E0E;
+  margin-bottom: 3rem;
+}
+
+nav {
+  margin-left: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: right;
+  font-size: 1rem;
+}
+
+a {
+  padding: 1.8rem;
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+}
+
+a:hover {
+  background-color: black;
+  text-decoration: underline;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem;
+}
+
+.game-title {
+  font-size: 1.5rem;
+}
+
+.game-description {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.colours-container {
+  display: flex;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.colour-dot {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+}
+
+.game-answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 3rem;
+}
+
+button {
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: #292c2c;
+  border: none;
+}
+
+button:hover {
+  background-color: hsl(180, 4%, 15%, 0.5);
+}
+
+footer {
+  margin-top: auto;
+  background-color: #0D0E0E;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.6rem;
+  padding: 0.4rem;
 }
