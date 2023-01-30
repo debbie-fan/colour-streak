@@ -5,7 +5,14 @@ function ColourGame() {
     
     // Create state for rgb colour value
     const [colourRgb, setColourRgb] = React.useState('255,255,255')
-    const [colourName, setColourName] = React.useState({colour1: '', colour2: '', colour3: ''})
+    const [colourName, setColourName] = React.useState({
+        colour1: '',
+        colour2: '',
+        colour3: '',
+        answer: 0,
+        name: ''
+    })    
+    const [streak, setStreak] = React.useState(0)
     
     // Styles
     let styles = {
@@ -31,6 +38,7 @@ function ColourGame() {
         setColourRgb(generateRgbValues());
     }
 
+    // Shuffle order of array to determine order of displayed answers on buttons
     function shuffleOrder(array) {
         let currentIndex = array.length,  randomIndex;
       
@@ -49,10 +57,21 @@ function ColourGame() {
         return array;
     }
 
+    // Check if user selected correct answer
+    function checkAnswer(buttonValue) {
+        if (buttonValue == colourName.answer) {
+            setStreak(streak + 1);
+        } else {
+            setStreak(0);
+            console.log(colourName.name)
+        }
+        newColour()
+    }
+
     // Create effect to call API for colour name after colour changes
     React.useEffect(() => {
-        // Create array to order number answers and randomize the order sequence
-        // to display in the buttons
+        // Create array and randomize the order sequence
+        // to display answers randomly in the buttons
         let colourOrder = [1, 2, 3];
         shuffleOrder(colourOrder);
 
@@ -66,7 +85,10 @@ function ColourGame() {
                     setColourName(prevColourName => {
                         return {
                             ...prevColourName,
-                            ['colour' + colourOrder[i]]: res.name.value  + ' is answer'}
+                            [`colour${colourOrder[i]}`]: res.name.value,
+                            answer: colourOrder[i],
+                            name: res.name.value
+                        }
                     });             
                 })
             } else {
@@ -77,7 +99,8 @@ function ColourGame() {
                     setColourName(prevColourName => {
                         return {
                             ...prevColourName,
-                            ['colour' + colourOrder[i]]: res.name.value}
+                            [`colour${colourOrder[i]}`]: res.name.value
+                        }
                     });
                 })
             }
@@ -95,6 +118,7 @@ function ColourGame() {
                     Take a guess and try your luck! 
                     <br /> Get multiple colours right consecutively to start a streak!
                 </p>
+                <span className="streak-count">Streak: {streak}</span>
             </div>
             <div className="colours-container">
                 <span className="colour-dot" style={styles}></span>
@@ -102,12 +126,22 @@ function ColourGame() {
             <div className="game-answers">
                 <button 
                     className="answer-1"
-                    onClick={newColour}
+                    onClick={() => checkAnswer(1)}
                 >
                     {colourName.colour1}
                 </button>
-                <button className="answer-2">{colourName.colour2}</button>
-                <button className="answer-3">{colourName.colour3}</button>
+                <button 
+                    className="answer-2"
+                    onClick={() => checkAnswer(2)}
+                >
+                    {colourName.colour2}
+                </button>
+                <button 
+                    className="answer-3"
+                    onClick={() => checkAnswer(3)}
+                >
+                    {colourName.colour3}
+                </button>
             </div>
         </div>
     )
