@@ -2,13 +2,17 @@ import React from "react";
 import getColourData from "../api/ColourAPI";
 
 function ColourGame() {
-    
+
     // Create state for rgb colour value
-    const [colourRgb, setColourRgb] = React.useState('255,255,255')
+    const [colourRgb, setColourRgb] = React.useState({
+        colour0: generateRgbValues(),
+        colour1: generateRgbValues(),
+        colour2: generateRgbValues()
+    })
     const [colourName, setColourName] = React.useState({
+        colour0: '',
         colour1: '',
         colour2: '',
-        colour3: '',
         answer: 0,
         name: ''
     })    
@@ -17,7 +21,7 @@ function ColourGame() {
     // Styles
     let styles = {
         // Set colour of dot
-        backgroundColor: `rgb(${colourRgb})`
+        backgroundColor: `rgb(${colourRgb.colour0})`
     };
 
     // Generate random value, min and max inclusive
@@ -33,17 +37,12 @@ function ColourGame() {
         return `${red}, ${green}, ${blue}`;
     }
 
-    // Update colour rgb value of answer to set style of the colour shown to user
-    function newColour() {
-        setColourRgb(generateRgbValues());
-    }
-
     // Shuffle order of array to determine order of displayed answers on buttons
     function shuffleOrder(array) {
         let currentIndex = array.length,  randomIndex;
       
         // While there remain elements to shuffle.
-        while (currentIndex != 0) {
+        while (currentIndex !== 0) {
       
           // Pick a remaining element.
           randomIndex = Math.floor(Math.random() * currentIndex);
@@ -59,27 +58,31 @@ function ColourGame() {
 
     // Check if user selected correct answer
     function checkAnswer(buttonValue) {
-        if (buttonValue == colourName.answer) {
+        if (buttonValue === colourName.answer) {
             setStreak(streak + 1);
         } else {
             setStreak(0);
             console.log(colourName.name)
         }
-        newColour()
+        setColourRgb({
+            colour0: generateRgbValues(),
+            colour1: generateRgbValues(),
+            colour2: generateRgbValues()
+        });
     }
 
     // Create effect to call API for colour name after colour changes
     React.useEffect(() => {
         // Create array and randomize the order sequence
         // to display answers randomly in the buttons
-        let colourOrder = [1, 2, 3];
+        let colourOrder = [0, 1, 2];
         shuffleOrder(colourOrder);
 
         // call ColorAPI
         for (let i = 0; i < 3; i++) {
-            if (i == 0) {
+            if (i === 0) {
                 // get json data as a promise from Color API for the colour
-                const colourDataPromise = getColourData(colourRgb)
+                const colourDataPromise = getColourData(colourRgb.colour0)
                 // get name of colour from json data
                 colourDataPromise.then(res => {
                     setColourName(prevColourName => {
@@ -93,7 +96,7 @@ function ColourGame() {
                 })
             } else {
                 // call API (for fake answers), get json data as a promise from Color API for random colour, for fake answer
-                const colourDataPromise2 = getColourData(generateRgbValues())
+                const colourDataPromise2 = getColourData(colourRgb[`colour${i}`])
                 // get name of fake answer from json data
                 colourDataPromise2.then(res => {
                     setColourName(prevColourName => {
@@ -125,6 +128,12 @@ function ColourGame() {
             </div>
             <div className="game-answers">
                 <button 
+                    className="answer-0"
+                    onClick={() => checkAnswer(0)}
+                >
+                    {colourName.colour0}
+                </button>
+                <button 
                     className="answer-1"
                     onClick={() => checkAnswer(1)}
                 >
@@ -135,12 +144,6 @@ function ColourGame() {
                     onClick={() => checkAnswer(2)}
                 >
                     {colourName.colour2}
-                </button>
-                <button 
-                    className="answer-3"
-                    onClick={() => checkAnswer(3)}
-                >
-                    {colourName.colour3}
                 </button>
             </div>
         </div>
