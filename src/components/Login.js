@@ -23,7 +23,7 @@ function Login() {
 
     return (
         <form className="form-signin" onSubmit={handleSubmit}>
-            <p className="form-title">Sign In</p>
+            <p className="form-title">Login</p>
             <input 
                 autoComplete="off" 
                 autoFocus 

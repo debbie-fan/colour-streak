@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
     return (
         <header>
@@ -5,24 +7,24 @@ function Navbar() {
         <nav>
             <ul>
                 <li className="colour-theory">
-                    <a href="">
+                    <Link to="colour-theory">
                         <span>Colour Theory</span>
-                    </a>
+                    </Link>
                 </li>
-                <li className="games">
-                    <a href="">
+                <li className="colour-game">
+                    <Link to="colour-game">
                         <span>Games</span>
-                    </a>
+                    </Link>
                 </li>
                 <li className="about">
-                    <a href="">
+                    <Link to="about">
                         <span>About</span>
-                    </a>
+                    </Link>
                 </li>
-                <li>
-                    <a href="">
-                        <span>Sign In</span>
-                    </a>
+                <li className="login">
+                    <Link to="login">
+                        <span>Login</span>
+                    </Link>
                 </li>
             </ul>
         </nav>
