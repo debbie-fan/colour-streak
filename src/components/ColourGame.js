@@ -115,7 +115,7 @@ function ColourGame() {
     return (
         <div>
             <div className="game-info">
-                <h2 className="game-title">WHAT'S THAT COLOUR?</h2>
+                <h1 className="game-title">WHAT'S THAT COLOUR?</h1>
                 <p className="game-description">
                     What is the name of the colour below? 
                     Take a guess and try your luck! 

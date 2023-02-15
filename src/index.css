@@ -35,8 +35,26 @@ header {
   margin-bottom: 3rem;
 }
 
+p, span {
+  font-size: 1rem;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #0D0E0E;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.6rem;
+  padding: 0.4rem;
+}
+
+/* Navbar component */
 nav {
   margin-left: auto;
+}
+
+nav span {
+  font-size: 1rem;
 }
 
 ul {
@@ -60,6 +78,7 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ColourGame component */
 .game-info {
   display: flex;
   flex-direction: column;
@@ -68,13 +87,8 @@ a:hover {
   padding: 3rem;
 }
 
-.game-title {
-  font-size: 1.5rem;
-}
-
 .game-description {
   text-align: center;
-  font-size: 1rem;
 }
 
 .colours-container {
@@ -112,15 +126,32 @@ button:hover {
   background-color: hsl(180, 4%, 15%, 0.5);
 }
 
-footer {
-  margin-top: auto;
-  background-color: #0D0E0E;
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.6rem;
-  padding: 0.4rem;
+/* About component */
+.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 
+.about-title {
+  padding-bottom: 1rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+.figma-img {
+  width: 50rem;
+}
+
+/* Login component */
 .form-signin {
   display: flex;
   flex-direction: column;
