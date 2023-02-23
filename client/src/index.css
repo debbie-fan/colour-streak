@@ -132,8 +132,8 @@ button:hover {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  max-width: 50rem;
+  margin: auto;
 }
 
 .about-title {
