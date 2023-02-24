@@ -1,13 +1,16 @@
 import React from "react";
+import axios from "axios"
 
 function Login() {
 
     const [formData, setFormData] = React.useState(
         {username: "", password: ""}
     )
+    
+    const [err, setError] = React.useState(null);
 
     function handleChange(event) {
-        const {name, value, type, checked} = event.target
+        const {name} = event.target
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -16,8 +19,14 @@ function Login() {
         })
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit (event) {
         event.preventDefault()
+        try{
+            const res = await axios.post("auth/register", formData)
+            console.log(res)
+        } catch(err) {
+            setError(err.response.data)
+        }
         console.log(formData)
     }
 
@@ -45,7 +54,8 @@ function Login() {
                 name="password"
                 value={formData.password}
             />
-            <button>Submit</button>                
+            <button type="submit">Submit</button>
+            {err && <p>{err}</p>}
         </form>
     )
 }
