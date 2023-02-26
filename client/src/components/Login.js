@@ -28,10 +28,11 @@ function Login() {
             // const res = await axios.post("auth/register", formData)
             // console.log(res)
             await axios.post("auth/login", formData)
-            navigate("/register")
+            navigate("/")
         } catch(err) {
             setError(err.response.data)
         }
+        console.log("login succeeded")
         console.log(formData)
     }
 
@@ -59,7 +60,7 @@ function Login() {
                 name="password"
                 value={formData.password}
             />
-            <button type="submit">Submit</button>
+            <button type="submit">Login</button>
             {err && <p>{err}</p>}
             <span>
                 Don't have an account? <Link to="/register" className="auth-link">Register</Link>
