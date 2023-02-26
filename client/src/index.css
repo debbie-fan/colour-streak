@@ -73,7 +73,7 @@ a {
   align-content: center;
 }
 
-a:hover {
+nav a:hover {
   background-color: black;
   text-decoration: underline;
 }
@@ -151,7 +151,7 @@ section {
   width: 50rem;
 }
 
-/* Login component */
+/* Login and Register component */
 .form-signin {
   display: flex;
   flex-direction: column;
@@ -170,4 +170,15 @@ section {
   font-size: 1rem;
   background-color: #292c2c;
   border: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.auth-link {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

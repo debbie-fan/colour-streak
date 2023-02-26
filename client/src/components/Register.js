@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Login() {
+function Register() {
 
     const [formData, setFormData] = React.useState(
         {username: "", password: ""}
@@ -27,8 +27,8 @@ function Login() {
         try{
             // const res = await axios.post("auth/register", formData)
             // console.log(res)
-            await axios.post("auth/login", formData)
-            navigate("/register")
+            await axios.post("auth/register", formData)
+            navigate("/login")
         } catch(err) {
             setError(err.response.data)
         }
@@ -37,7 +37,7 @@ function Login() {
 
     return (
         <form className="form-signin" onSubmit={handleSubmit}>
-            <p className="form-title">Login</p>
+            <p className="form-title">Register</p>
             <input 
                 autoComplete="off" 
                 autoFocus 
@@ -62,10 +62,10 @@ function Login() {
             <button type="submit">Submit</button>
             {err && <p>{err}</p>}
             <span>
-                Don't have an account? <Link to="/register" className="auth-link">Register</Link>
+                Already have an account? <Link to="/login" className="auth-link">Login</Link>
             </span>
         </form>
     )
 }
 
-export default Login;
+export default Register;
