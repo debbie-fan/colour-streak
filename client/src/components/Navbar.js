@@ -1,6 +1,10 @@
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
 
 function Navbar() {
+    const { currentUser, logout } = useContext(AuthContext);
+
     return (
         <header>
             <span>Colour Streak Logo Image</span>
@@ -21,11 +25,19 @@ function Navbar() {
                         <span>About</span>
                     </Link>
                 </li>
-                <li className="login">
-                    <Link to="login">
-                        <span>Login</span>
-                    </Link>
-                </li>
+                { currentUser ? (
+                    <li className="logout">
+                        <Link to="/">
+                            <span onClick={logout}>Logout</span>
+                        </Link>
+                    </li>
+                ) : (
+                    <li className="login">
+                        <Link to="login">
+                            <span>Login</span>
+                        </Link>
+                    </li>
+                )}
             </ul>
         </nav>
         </header>

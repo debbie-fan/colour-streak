@@ -25,8 +25,6 @@ function Register() {
     async function handleSubmit (event) {
         event.preventDefault()
         try{
-            // const res = await axios.post("auth/register", formData)
-            // console.log(res)
             await axios.post("auth/register", formData)
             navigate("/login")
         } catch(err) {

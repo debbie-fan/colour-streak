@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 function Login() {
 
@@ -10,7 +12,9 @@ function Login() {
     
     const [err, setError] = React.useState(null);
 
-    const navigate = useNavigate() 
+    const navigate = useNavigate();
+    
+    const { login } = useContext(AuthContext);
 
     function handleChange(event) {
         const {name} = event.target
@@ -25,8 +29,7 @@ function Login() {
     async function handleSubmit (event) {
         event.preventDefault()
         try{
-            // const res = await axios.post("auth/register", formData)
-            // console.log(res)
+            await login(formData)
             await axios.post("auth/login", formData)
             navigate("/")
         } catch(err) {
