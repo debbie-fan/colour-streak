@@ -63,8 +63,7 @@ export const login = (req, res) => {
         // Create token
         const token = jwt.sign({ id: checkExistingUserQueryData[0].id}, "jwtkey");
         const { password, ...other } = checkExistingUserQueryData[0];  // separate password from rest of information
-        console.log(checkExistingUserQueryData[0]);
-        console.log(other);
+
         // Get user highscore
         const userHighscoreQuery = "SELECT highscore FROM leaderboard WHERE user_id = ?"
         const userID = checkExistingUserQueryData[0].id;
@@ -75,7 +74,7 @@ export const login = (req, res) => {
             
             // Add highscore to local storage info
             other.highscore = userHighscoreQueryData[0].highscore;
-            
+
             // Create cookie
             res
                 .cookie("access_token", token, {
@@ -95,5 +94,6 @@ export const logout = (req, res) => {
 };
 
 export const updateHighscore = (req, res) => {
-
+    console.log("update table here");
+    return res.status(200).json("highscore retrieved");
 };

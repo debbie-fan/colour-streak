@@ -1,7 +1,12 @@
 import React from "react";
 import getColourData from "../api/ColourAPI";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 function ColourGame() {
+
+    // Link to server
+    const { updateHighscore } = useContext(AuthContext);
 
     // Create state for rgb colour value
     const [colourRgb, setColourRgb] = React.useState({
@@ -60,6 +65,7 @@ function ColourGame() {
     function checkAnswer(buttonValue) {
         if (buttonValue === colourName.answer) {
             setStreak(streak + 1);
+            updateHighscore();
         } else {
             setStreak(0);
             console.log(colourName.name)
