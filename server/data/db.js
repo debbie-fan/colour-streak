@@ -13,12 +13,3 @@ db.connect(function(err) {
   };
   console.log("Connected!");
 });
-
-
-// var con = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "qscmySQLAE!324",
-//     database: "colour_streak"
-//   });
-  
