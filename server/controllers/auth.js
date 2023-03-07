@@ -93,7 +93,8 @@ export const logout = (req, res) => {
     }).status(200).json("User has been logged out.")
 };
 
-export const updateHighscore = (req, res) => {
+export const updateHighscore = (req, res) => { 
+    // Update table if user achieved new high score
     console.log("update table here");
-    return res.status(200).json("highscore retrieved");
+    return res.status(200).json("highscore updated");
 };

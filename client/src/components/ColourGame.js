@@ -65,8 +65,8 @@ function ColourGame() {
     function checkAnswer(buttonValue) {
         if (buttonValue === colourName.answer) {
             setStreak(streak + 1);
-            updateHighscore();
         } else {
+            updateHighscore(streak);
             setStreak(0);
             console.log(colourName.name)
         }
