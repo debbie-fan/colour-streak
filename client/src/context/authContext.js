@@ -31,8 +31,9 @@ export const AuthContextProvider = ({ children }) => {
             // Update local storage with new high score
             userInfo.highscore = newStreak;
             localStorage.setItem("user", JSON.stringify(userInfo));
-            // Update server side with new high score
-            await axios.post("/auth/updateHighscore", newStreak);
+            // Update server side with new high score, pass in user info object
+            console.log("before send " + userInfo)
+            await axios.post("/auth/updateHighscore", userInfo);
         }
     }
     

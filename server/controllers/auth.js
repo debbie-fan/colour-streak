@@ -69,9 +69,9 @@ export const login = (req, res) => {
         const userID = checkExistingUserQueryData[0].id;
 
         db.query(userHighscoreQuery, userID, (userHighscoreQueryErr, userHighscoreQueryData) => {
+            // Catch error
             if (userHighscoreQueryErr) return res.status(500).json(userHighscoreQueryErr);
-            // localStorage.setItem({userHighscoreQueryData}, userHighscore);
-            
+
             // Add highscore to local storage info
             other.highscore = userHighscoreQueryData[0].highscore;
 
@@ -95,6 +95,16 @@ export const logout = (req, res) => {
 
 export const updateHighscore = (req, res) => { 
     // Update table if user achieved new high score
-    console.log("update table here");
+    // Query for user in highscore table
+    console.log("after sent " + req.body.id);
+    const newHighscore = req.body.highscore;
+    const userID = req.body.id;
+    const highscoreUpdateQuery = "UPDATE leaderboard SET highscore = ? WHERE user_id = ?"
+
+    db.query(highscoreUpdateQuery, [newHighscore, userID], (highscoreUpdateQueryErr, highscoreUpdateQueryData) => {
+        if (highscoreUpdateQueryErr) return res.status(500).json(highscoreUpdateQueryErr);
+        // userHighscoreQueryData.highscore = newHighscore;
+    })
+
     return res.status(200).json("highscore updated");
 };
