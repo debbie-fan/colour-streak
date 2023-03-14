@@ -13,9 +13,10 @@ function About() {
             <section>
                 <h2>The Process</h2>
                 <span>
-                    I started off designing the layout of the site using figma and focused on the game component, which is a simple colour guessing game. 
+                    I started off designing the layout of the site and focused on the game component, which is a simple colour guessing game. 
                     This helped me decide on the colour scheme, think about the different pages I'll have on the site, and how the game will work. 
-                    The game uses an API called the colorAPI, which has a database of colours and the names. 
+                    The game uses an API called <a href='https://www.thecolorapi.com/'>TheColorAPI</a>, which has a database of colours and the names. Here's a screenshot of my initial idea, 
+                    which you can also view on <a href='https://www.figma.com/file/bW5NwmY5FtWARmqEsNBHUp/The-Colour-Game?node-id=0%3A1'>Figma</a>:
                 </span>
                 <br/>
                 <img src={require('../assets/figma-colour-streak.PNG')} alt="Website layout design in figma" className='figma-img'/>

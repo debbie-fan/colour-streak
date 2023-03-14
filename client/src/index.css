@@ -39,6 +39,30 @@ p, span {
   font-size: 1rem;
 }
 
+a:hover {
+  color: lightblue;
+}
+
+table, th, td {
+  border: none;
+  border-collapse: collapse;
+  height: 2rem;
+}
+
+th, td {
+  border-left: 20px solid #181A1B;
+  border-right: 20px solid #181A1B;
+  text-align: center;
+}
+
+td {
+  background-color: #292c2c;
+}
+
+table {
+  width: 100%;
+}
+
 footer {
   margin-top: auto;
   background-color: #0D0E0E;
@@ -57,7 +81,7 @@ nav span {
   font-size: 1rem;
 }
 
-ul {
+nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -66,7 +90,7 @@ ul {
   font-size: 1rem;
 }
 
-a {
+nav a {
   padding: 1.8rem;
   text-decoration: none;
   display: flex;
@@ -124,6 +148,29 @@ button {
 
 button:hover {
   background-color: hsl(180, 4%, 15%, 0.5);
+}
+
+/* Leaderboard component */
+.leaderboard-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: auto;
+}
+
+.rank-col {
+  width: 5rem;
+}
+
+.username-col {
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.highscore-col {
+  width: 7rem;
 }
 
 /* About component */
