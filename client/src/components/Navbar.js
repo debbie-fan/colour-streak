@@ -10,14 +10,14 @@ function Navbar() {
             <span>Colour Streak Logo Image</span>
         <nav>
             <ul>
-                <li className="colour-theory">
-                    <Link to="colour-theory">
-                        <span>Colour Theory</span>
-                    </Link>
-                </li>
                 <li className="colour-game">
                     <Link to="colour-game">
-                        <span>Games</span>
+                        <span>Game</span>
+                    </Link>
+                </li>
+                <li className="leaderboard">
+                    <Link to="leaderboard">
+                        <span>Leaderboard</span>
                     </Link>
                 </li>
                 <li className="about">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import ColourGame from '../components/ColourGame';
-import ColourTheory from '../components/ColourTheory';
+import Leaderboard from '../components/Leaderboard';
 import About from '../components/About';
 import Login from '../components/Login';
 import Register from '../components/Register';
@@ -14,12 +14,12 @@ function Router() {
                 element={ <ColourGame/> } 
             />
             <Route 
-                path="colour-theory" 
-                element= { <ColourTheory/> } 
-            />
-            <Route 
                 path="colour-game" 
                 element= { <ColourGame/> } 
+            />
+            <Route 
+                path="leaderboard" 
+                element= { <Leaderboard/> } 
             />
             <Route 
                 path="about" 
