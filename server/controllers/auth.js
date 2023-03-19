@@ -33,7 +33,6 @@ export const register = (req, res) => {
     
             db.query(leaderboardEntryCreationQuery, [leaderboardEntryCreationQueryValues], (leaderboardEntryCreationQueryErr, leaderboardEntryCreationData) => {
                 if (leaderboardEntryCreationQueryErr) return res.json(leaderboardEntryCreationQueryErr);
-                return res.status(200).json("User has been added to leaderboard");
             })
             return res.status(200).json("User has been created");
         });
@@ -107,4 +106,14 @@ export const updateHighscore = (req, res) => {
     })
 
     return res.status(200).json("highscore updated");
+};
+
+export const getCurrentLeaderboard = (req, res) => {
+    const getCurrentLeaderboardQuery = "SELECT * FROM leaderboard";
+
+    console.log("line 114")
+    db.query(getCurrentLeaderboardQuery, (getCurrentLeaderboardQueryErr, getCurrentLeaderboardQueryData) => {
+        if (getCurrentLeaderboardQueryErr) return res.status(500).json(getCurrentLeaderboardQueryErr);
+        return res.status(200).json(JSON.stringify(getCurrentLeaderboardQueryData));
+    })
 };
