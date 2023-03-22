@@ -109,9 +109,8 @@ export const updateHighscore = (req, res) => {
 };
 
 export const getCurrentLeaderboard = (req, res) => {
-    const getCurrentLeaderboardQuery = "SELECT * FROM leaderboard";
+    const getCurrentLeaderboardQuery = "SELECT username, highscore FROM colour_streak.leaderboard, colour_streak.users WHERE user_id = id GROUP BY user_id ORDER BY highscore DESC;";
 
-    console.log("line 114")
     db.query(getCurrentLeaderboardQuery, (getCurrentLeaderboardQueryErr, getCurrentLeaderboardQueryData) => {
         if (getCurrentLeaderboardQueryErr) return res.status(500).json(getCurrentLeaderboardQueryErr);
         return res.status(200).json(JSON.stringify(getCurrentLeaderboardQueryData));

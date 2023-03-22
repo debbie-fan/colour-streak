@@ -69,7 +69,7 @@ function ColourGame() {
             // Pass current streak to check and update high score if necessary
             updateHighscore(streak);
             setStreak(0);
-            console.log(colourName.name)
+            console.log(`${colourName.name} RGB(${colourRgb.colour0})`)
         }
         setColourRgb({
             colour0: generateRgbValues(),

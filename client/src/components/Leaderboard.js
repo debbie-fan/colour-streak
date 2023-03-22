@@ -26,14 +26,11 @@ function Leaderboard() {
                     </tr>
                     {leaderboardData.map((entry, index) => (
                         <tr key={index}>
-                            <td className="rank-col">{index}</td>
-                            <td className="username-col">{entry.user_id}</td>
+                            <td className="rank-col">{index + 1}</td>
+                            <td className="username-col">{entry.username}</td>
                             <td className="highscore-col">{entry.highscore}</td>
                         </tr>
                     ))}
-                    {/* <tr>
-                        <td className="rank-col">1</td><td className="username-col">user1</td><td className="highscore-col">3</td>
-                    </tr> */}
                 </tbody>
             </table>
         </div>
