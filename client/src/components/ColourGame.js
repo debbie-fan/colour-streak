@@ -124,9 +124,9 @@ function ColourGame() {
             <div className="game-info">
                 <h1 className="game-title">WHAT'S THAT COLOUR?</h1>
                 <p className="game-description">
-                    What is the name of the colour below? 
-                    Take a guess and try your luck! 
+                    Guess the name of the colour below. 
                     <br /> Get multiple colours right consecutively to start a streak!
+                    <br /> Login to track your highscore!
                 </p>
                 <span className="streak-count">Streak: {streak}</span>
             </div>

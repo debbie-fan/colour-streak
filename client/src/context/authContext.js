@@ -31,18 +31,22 @@ export const AuthContextProvider = ({ children }) => {
     // Update high score in local storage and server side
     const updateHighscore = async(newStreak) => {
         // Get user's current high score from local storage
-        const userInfo = JSON.parse(localStorage.getItem("user"))
-        const highscore = userInfo.highscore;
-        console.log("User's highscore is: " + highscore);
-
-        // Check if user has achieved a new high score
-        if (newStreak > highscore) {
-            // Update local storage with new high score
-            userInfo.highscore = newStreak;
-            localStorage.setItem("user", JSON.stringify(userInfo));
-            // Update server side with new high score, pass in user info object
-            console.log("before send " + userInfo)
-            await axios.post("/auth/updateHighscore", userInfo);
+        const userInfo = JSON.parse(localStorage.getItem("user"));
+        
+        // Only update highscore table if user is logged in
+        if (userInfo) {
+            const highscore = userInfo.highscore;
+            console.log("User's highscore is: " + highscore);
+    
+            // Check if user has achieved a new high score
+            if (newStreak > highscore) {
+                // Update local storage with new high score
+                userInfo.highscore = newStreak;
+                localStorage.setItem("user", JSON.stringify(userInfo));
+                // Update server side with new high score, pass in user info object
+                console.log("before send " + userInfo)
+                await axios.post("/auth/updateHighscore", userInfo);
+            }
         }
     }
     
