@@ -7,7 +7,9 @@ function Navbar() {
 
     return (
         <header>
-            <span>Colour Streak Logo Image</span>
+            <span className="logo">
+                <img className="logo-img" src={require("../assets/colour-streak-logo.png")} alt="Colour Streak Logo"/>
+            </span>
         <nav>
             <ul>
                 <li className="colour-game">
