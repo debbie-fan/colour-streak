@@ -138,7 +138,7 @@ nav a:hover {
   height: 20rem;
   width: 20rem;
   -webkit-mask:url("./assets/paint-streak.png") center/contain;
-  /* border-radius: 50%; */
+  z-index: -9999;
 }
 
 .game-answers {
