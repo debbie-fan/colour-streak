@@ -11,7 +11,7 @@ function App() {
           <Router/>
           {/* <p className='App-intro'>{this.state.apiResponse}</p> */}
         </main>
-        <footer>Last updated March 2023</footer>
+        <footer>Created by Debbie Fan</footer>
       </div>
     );
 }
