@@ -52,6 +52,10 @@ function About() {
                     It is more complicated than the current game because it will require showing multiple colours at once and a more advanced handling of the responses from the API calls 
                     to the colour API.
                 </span>
+                <br/>
+                <span>
+                    Lastly, this project only runs locally and requires all dependencies to be installed locally. I'm looking towards hosting this on the cloud!
+                </span>
             </section>
         </div>
     )
