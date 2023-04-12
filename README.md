@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Colour Streak
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Colour Streak is my personal project showcasing my love for learning and making art.
 
-## Available Scripts
+This project was created using React, Node.js with Express, and MySQL. React is used to create the core application pages including the game user interface and the leaderboard page, which ranks user scores from highest to lowest. Authentication is implemented and is primarily used to track highscores among users. The colour API (https://www.thecolorapi.com/) is used to obtain all of the relevant colour data for the game. For the backend, Node.js with Express is primarily utilized to make REST API calls to mySQL data tables.
 
-In the project directory, you can run:
+## The Game
+The site hosts a fun colour game that tests the user's ability to guess a random colour's name. The game shows the user a colour and provides three buttons with one containing the correct name of the colour. The other two options are randomly chosen colours. 
 
-### `npm start`
+![Colour-Streak-Screenshot](https://user-images.githubusercontent.com/19713291/231312687-f596328a-ba16-49ef-ab09-8d8dd1d4d9ed.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## The Leaderboard
+The colour names are pulled from a database by calling a color API (https://www.thecolorapi.com/). A streak starts when the user gets the answer right multiple consecutive times and are shown above the displayed colour. If users are logged in, highscores are recorded into a mySQL data table when the streaks end. Rankings can be seen on the Leaderboard page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Colour-Streak-Leaderboard-Screenshot](https://user-images.githubusercontent.com/19713291/231314287-fe101706-be22-495f-810d-d34b1bc39960.png)
 
-### `npm test`
+## The About Page
+The About page provides more detail on the design and the thought process behind the project, including a screencapture of the initial site design sketched on Figma as well as sections discussing the webframeworks used and potential future additions to the site such as plans to add more difficulty to the game and adding another version of the game for users to learn and practice colour theory by guessing the correct colour scheme that is shown.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Colour-Streak-About-Screenshot](https://user-images.githubusercontent.com/19713291/231314300-ff7fb1d1-73f9-4b7d-b440-647174b06307.png)
 
-### `npm run build`
+## Authentication
+Authentication is implemented in this site to remember users highscores and display the ranks in the Leaderboard page. If users don't have an account they can click the link on the Login page to access the Register page. Once registered, the username and hashed password is stored in the mySQL database. When logged in, a session is created to remember the user.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Colour-Streak-Login-Screenshot](https://user-images.githubusercontent.com/19713291/231317843-e1dfbfe5-9844-4c9a-9926-3f4667cc0f9c.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Build
+To run the application locally, the following are required:
+- mySQL: version 2.18.1
+  - Create **colour_streak** schema
+  - Create table named **users** with columns "id" (int AI PK), "username" (varchar(255)), "password" (varchar(255))
+  - Create table named **leaderboard** with columns "user_id" (int PK), "highscore" (int)
+- npm: latest version
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Once the dependencies above exist, run ```npm start``` to launch the application!
