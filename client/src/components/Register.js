@@ -4,14 +4,17 @@ import axios from "axios";
 
 function Register() {
 
+    // Create form with default empty strings in inputs
     const [formData, setFormData] = React.useState(
         {username: "", password: ""}
     )
     
+    // Set variables
     const [err, setError] = React.useState(null);
 
     const navigate = useNavigate() 
 
+    // Update record of form data every time inputs change
     function handleChange(event) {
         const {name} = event.target
         setFormData(prevFormData => {
@@ -22,6 +25,7 @@ function Register() {
         })
     }
 
+    // Prevent default on submit and check if user logs in
     async function handleSubmit (event) {
         event.preventDefault()
         try{
