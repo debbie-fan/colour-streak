@@ -1,4 +1,5 @@
 # Colour Streak
+#### Video Demo:  [YouTube](https://youtu.be/eKTuqSbdlTo)
 
 Colour Streak is my personal project showcasing my love for learning and making art.
 
